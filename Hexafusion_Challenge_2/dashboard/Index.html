@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.min.css">
+  </head>
+
+  <body>
+    <table id="data-table"></table>
+    <script>
+      google.script.run.withSuccessHandler(showData).getData();
+      function showData(dataArray) {
+        $('#data-table').DataTable({
+          data: dataArray.reverse(),
+          columns: [
+            {title:"Timestamp"},
+            {title:"Original Input"},
+            {title:"Generated Output"}
+          ],
+          order: []
+        });
+      }
+    </script>
+  </body>
+</html>
